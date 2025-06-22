@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function searchBook(bookName, callback) {
+            console.log("Searching for book: " + bookName + "...");
+  
+            setTimeout(() => {
+                const books = ["Harry Potter", "The Hobbit", "Pride and Prejudice", "1984"];
+    
+                if (books.includes(bookName)) {
+                    callback(null, `"${bookName}" found in library.`);
+                } else {
+                    callback(`"${bookName}" not found.`, null);
+                }
+            }, 2000);
+        }
+
+        searchBook("The Hobbit", function(error, result) {
+            if (error) {
+                console.log("Error:", error);
+            } else {
+                console.log("Success:", result);
+            }
+        });
+    </script>
+</body>
+</html>

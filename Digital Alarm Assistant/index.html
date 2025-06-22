@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Alarm</title>
+</head>
+<body>
+
+<script>
+  function setAlarm(time, message) {
+    const now = new Date();
+    const alarmTime = new Date(time);
+    const difference = alarmTime - now;
+
+    if (difference < 0) {
+      alert("Time already passed!");
+      return;
+    }
+
+    setTimeout(function() {
+      alert("Alarm: " + message);
+    }, difference);
+  }
+
+  const futureTime = new Date(Date.now() + 60 * 1000).toISOString();
+  setAlarm(futureTime, "Time to take a break!");
+</script>
+
+</body>
+</html>
